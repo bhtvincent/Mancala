@@ -22,7 +22,7 @@ public class SelectStyle extends JFrame{
 			
 			public void actionPerformed(ActionEvent event) {
 				//Load mancala game
-				//Load JFrame where user selects 3 or 4 marbles
+				InputMarbles input = new InputMarbles();
 				SelectStyle.super.dispose();
 			}
 			
@@ -34,7 +34,7 @@ public class SelectStyle extends JFrame{
 			
 			public void actionPerformed(ActionEvent event) {
 				//Load mancala game
-				//Load JFrame where user selects 3 or 4 marbles
+				InputMarbles input = new InputMarbles();
 				SelectStyle.super.dispose();
 			}
 			
