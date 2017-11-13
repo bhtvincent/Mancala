@@ -20,6 +20,7 @@ public class Marble extends JComponent
 		this.c = c;
 		this.x = x;
 		this.y = y;
+		this.setPreferredSize(new Dimension(2*WIDTH, 2*HEIGHT));
 	}
 	
 	/**
@@ -46,9 +47,12 @@ public class Marble extends JComponent
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new BorderLayout());
-		frame.setSize(200, 200);
-		frame.add(new Marble(Color.BLACK, 5, 5), BorderLayout.CENTER);
 		frame.setLocationRelativeTo(null);
+		frame.setSize(500, 500);
+		Marble m1 = new Marble(Color.BLACK, 5, 5);
+		Marble m2 = new Marble(Color.ORANGE, 10, 10);
+		frame.add(m1,BorderLayout.NORTH);
+		frame.add(m2,BorderLayout.CENTER);
 		frame.setVisible(true);
 	}
 	*/
