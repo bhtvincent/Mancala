@@ -1,5 +1,3 @@
-package mancala_game;
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
