@@ -47,6 +47,7 @@ public class SelectStyle extends JFrame{
 		panel.setBounds(getWidth() / 2 - 50, getHeight() / 2 - 50, 200, 150);
 		add(panel);
 		
+		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 	}
