@@ -1,4 +1,3 @@
-package mancala_game;
 
 import java.awt.Dimension;
 
