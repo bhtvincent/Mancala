@@ -1,3 +1,5 @@
+package mancala_game;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -39,8 +41,14 @@ public class InputMarbles extends JFrame{
 		setSize(500,300);
 		
 		setDefaultCloseOperation(InputMarbles.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
 		setVisible(true);
 		
 		
+	}
+	
+	public static void main(String[] args)
+	{
+		InputMarbles im = new InputMarbles();
 	}
 }
