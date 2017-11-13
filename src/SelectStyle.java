@@ -1,5 +1,3 @@
-package mancala_game;
-
 import java.awt.Dimension;
 
 import javax.swing.JButton;
