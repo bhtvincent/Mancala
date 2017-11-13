@@ -1,13 +1,14 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class MainFrame extends JFrame {
+public class MainFrameOne extends JFrame implements StyleStrategy {
 
-	public MainFrame() {
+	public MainFrameOne() {
 		JPanel top = new JPanel();
 		JLabel topArrow = new JLabel("<-------");
 		JLabel topName = new JLabel("Player B");
@@ -49,9 +50,14 @@ public class MainFrame extends JFrame {
 		main.add(right, BorderLayout.EAST);
 
 		add(main, BorderLayout.CENTER);
-		
+		createBoard(Color.RED, Color.CYAN, "circle");
 		setVisible(true);
 
+	}
+	
+	public void createBoard(Color mancalaColor, Color pitColor, String pitShape)
+	{
+		
 	}
 
 }
