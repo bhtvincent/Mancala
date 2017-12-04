@@ -43,7 +43,7 @@ public class Pit extends JButton{
 		
 	
 	//Adds a marble to the LinkedList
-	public void addMarble(Marble m) {
+	public void addMarble() {
 		numOfMarbles++;;
 	}
 	
