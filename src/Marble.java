@@ -41,6 +41,10 @@ public class Marble extends JComponent
 		this.draw(g2);
 	}
 	
+	public void setCoordinates(int x, int y) {
+		this.x=x;
+		this.y=y;
+	}
 	/*Main method for testing purposes
 	public static void main(String[] args)
 	{
