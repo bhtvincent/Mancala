@@ -3,7 +3,16 @@ import javax.swing.*;
 import java.util.ArrayList;
 public class StrategyOne implements StyleStrategy
 {	
-	public void createBoard(Color mancalaColor, Color pitColor, ArrayList<Pit> pits, ArrayList<MancalaPit> mancalas)
+	private Color pitColor;
+	private Color mancalaColor;
+	
+	public StrategyOne(Color pitColor, Color mancalaColor)
+	{
+		this.pitColor = pitColor;
+		this.mancalaColor = mancalaColor;
+	}
+	
+	public void createBoard(ArrayList<Pit> pits, ArrayList<MancalaPit> mancalas)
 	{
 		for(Pit p : pits)
 		{
