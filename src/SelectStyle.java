@@ -22,7 +22,7 @@ public class SelectStyle extends JFrame{
 		button1.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent event) {
-				MainFrameOne frame = new MainFrameOne();
+				//MainFrameOne frame = new MainFrameOne();
 				InputMarbles input = new InputMarbles();
 				SelectStyle.super.dispose();
 			}
@@ -34,7 +34,7 @@ public class SelectStyle extends JFrame{
 		button2.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent event) {
-				MainFrameOne frame = new MainFrameOne();
+				//MainFrameOne frame = new MainFrameOne();
 				InputMarbles input = new InputMarbles();
 				SelectStyle.super.dispose();
 			}
