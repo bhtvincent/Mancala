@@ -29,7 +29,7 @@ public class Pit extends JButton{
 		this.setPreferredSize(new Dimension(size,size));
 		
 		c = Color.RED;//Set the Color
-		this.setBackground(Color.RED);
+		this.setBackground(c);
 		this.setOpaque(true);
 		this.setBorderPainted(false);
 
@@ -74,6 +74,12 @@ public class Pit extends JButton{
 	    }
 	    return shape.contains(x, y);
 	  }
+	
+	public void setColor(Color c)
+	{
+		this.c = c;
+		this.repaint();
+	}
 	
 	public static void main(String[] args)
 	{
