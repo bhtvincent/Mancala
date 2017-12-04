@@ -1,5 +1,6 @@
 import java.awt.*;
+import java.util.ArrayList;
 public interface StyleStrategy 
 {
-	public JPanel createBoard(Color mancalaColor, Color pitColor);
+	public void createBoard(Color mancalaColor, Color pitColor, ArrayList<Pit> pits, ArrayList<MancalaPit> mancalas);
 }

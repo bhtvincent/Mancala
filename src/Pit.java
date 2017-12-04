@@ -9,7 +9,7 @@ import java.awt.geom.Rectangle2D;
 
 import javax.swing.*;
 
-public class Pit extends JComponent{
+public class Pit extends JButton{
 	
 	private Color c;
 	private int x;
