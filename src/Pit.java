@@ -20,8 +20,7 @@ public class Pit extends JButton{
 	private Shape shape;
 	
 	
-	//Intializes the LinkedList, 
-	public Pit(int numOfMarbles, Version v, int x, int y) {
+	public Pit(int numOfMarbles,int x, int y) {
 		
 		super(Integer.toString(numOfMarbles));
 		numOfMarbles = 0;
@@ -29,7 +28,7 @@ public class Pit extends JButton{
 		this.y=y;
 		this.setPreferredSize(new Dimension(size,size));
 		
-		c = Color.RED;
+		c = Color.RED;//Set the Color
 		this.setBackground(Color.RED);
 		this.setOpaque(true);
 		this.setBorderPainted(false);
@@ -57,7 +56,7 @@ public class Pit extends JButton{
 		} else {
 			   g.setColor(c);
 		}
-		 g.fillOval(0, 0, getSize().width - 1, getSize().height - 1);
+		 g.fillOval(0, 0, getSize().width, getSize().height);
 		super.paintComponent(g);
 	}
 	
@@ -83,7 +82,7 @@ public class Pit extends JButton{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new BorderLayout());
 		frame.setSize(200, 200);
-		Pit pit = new Pit(4,Version.ONE,10,10);
+		Pit pit = new Pit(4,10,10);
 		panel.add(pit);	
 		frame.add(panel);
 		frame.setLocationRelativeTo(null);
