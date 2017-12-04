@@ -52,6 +52,35 @@ public class MainFrameOne extends JFrame implements StyleStrategy {
 		add(main, BorderLayout.CENTER);
 		createBoard(Color.RED, Color.CYAN, "circle");
 		setVisible(true);
+		
+		//Gridlayout containing 12 buttons inside of Borderlayout
+		int rows = 2;
+		int columns = 6;
+		
+		JPanel pane = new JPanel();
+	    pane.setLayout(new GridLayout(rows, columns));
+	    for (int i = 7; i > 1; i--) {
+	      JButton button = new JButton(Integer.toString(i - 1));
+	      pane.add(button);
+	    }
+	    for (int i = 0; i < 6; i++) {
+		      JButton button = new JButton(Integer.toString(i + 1));
+		      pane.add(button);
+		    }
+	   
+		JPanel pits = new JPanel();
+		pits.setLayout(new BorderLayout());
+		
+		JButton pit1 = new JButton("A");
+		pit1.setEnabled(false);
+		JButton pit2 = new JButton("B");
+		
+		pits.add(pit1, BorderLayout.WEST);
+		pit1.setEnabled(false);
+		pits.add(pit2, BorderLayout.EAST);
+		
+		pits.add(pane, BorderLayout.CENTER);
+	    main.add(pits, BorderLayout.CENTER);
 
 	}
 	
