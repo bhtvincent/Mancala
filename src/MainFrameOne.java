@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
 public class MainFrameOne extends JFrame implements StyleStrategy {
 
-	public MainFrameOne() {
+	public MainFrameOne(int numOfMarbles) {
 		JPanel top = new JPanel();
 		JLabel topArrow = new JLabel("<-------");
 		JLabel topName = new JLabel("Player B");
@@ -62,11 +62,11 @@ public class MainFrameOne extends JFrame implements StyleStrategy {
 		JPanel pane = new JPanel();
 	    pane.setLayout(new GridLayout(rows, columns));
 	    for (int i = 7; i > 1; i--) {
-	      JButton button = new JButton(Integer.toString(i - 1));
+	     JButton button = new JButton(Integer.toString(numOfMarbles));
 	      pane.add(button);
 	    }
 	    for (int i = 0; i < 6; i++) {
-		      JButton button = new JButton(Integer.toString(i + 1));
+		      JButton button = new JButton(Integer.toString(numOfMarbles));
 		      pane.add(button);
 		    }
 	   
