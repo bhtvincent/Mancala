@@ -76,7 +76,7 @@ public class MainFrameOne extends JFrame implements StyleStrategy {
 		JButton pit2 = new JButton("B");
 		
 		pits.add(pit1, BorderLayout.WEST);
-		pit1.setEnabled(false);
+		pit2.setEnabled(false);
 		pits.add(pit2, BorderLayout.EAST);
 		
 		pits.add(pane, BorderLayout.CENTER);
