@@ -31,6 +31,8 @@ public class InputMarbles extends JFrame{
 					//load mancala game with num_entered
 					InputMarbles.super.dispose();
 					numOfMarbles = Integer.parseInt(marble_num.getText());
+					System.out.println(numOfMarbles);
+					MainFrameOne frame = new MainFrameOne(numOfMarbles);
 				}
 		});
 		
