@@ -3,6 +3,7 @@ import javax.swing.event.*;
 public class ModelOfMancala 
 {
 	private ArrayList<Pit> pits;
+	private ArrayList<MancalaPit> mancalas;
 	private ArrayList<ChangeListener> listeners;
 	
 	/**
@@ -42,5 +43,15 @@ public class ModelOfMancala
 	public void moveMade()
 	{
 		return;
+	}
+	
+	public ArrayList<Pit> getPits()
+	{
+		return pits;
+	}
+	
+	public ArrayList<MancalaPit> getMancalas()
+	{
+		return mancalas;
 	}
 }
