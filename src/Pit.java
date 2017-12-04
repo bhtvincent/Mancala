@@ -15,7 +15,7 @@ public class Pit extends JButton{
 	private Color c;
 	private int x;
 	private int y;
-	private final int size = 50;
+	private final int size = 60;
 	private int numOfMarbles;
 	private Shape shape;
 	
@@ -27,15 +27,18 @@ public class Pit extends JButton{
 		numOfMarbles = 0;
 		this.x=x;
 		this.y=y;
+		this.setPreferredSize(new Dimension(size,size));
+		
 		c = Color.RED;
+		this.setBackground(Color.RED);
+		this.setOpaque(true);
+		this.setBorderPainted(false);
 
-		//setBackground(Color.lightGray);
-	    //setFocusable(false);
-	   // Dimension size = new Dimension(size,size);
-	    //size.width = size.height = Math.max(size.width, size.height);*/
+
+		setBackground(Color.lightGray);
+	    setFocusable(false);
 	    setContentAreaFilled(false);
 	    
-	    shape = new Ellipse2D.Double();
 	    
 	}
 		
@@ -48,16 +51,20 @@ public class Pit extends JButton{
 	
 	protected void paintComponent(Graphics g)
 	{
-		/*Graphics2D g2 = (Graphics2D) g;
-		this.draw(g2);*/
-		g.setColor(c);
-		g.fillOval(x, y, size-1,size-1);
+		//Paints the inside of the Pit, and grey if its clicked
+		if (getModel().isArmed()) {
+		      g.setColor(Color.gray);
+		} else {
+			   g.setColor(c);
+		}
+		 g.fillOval(0, 0, getSize().width - 1, getSize().height - 1);
 		super.paintComponent(g);
 	}
 	
 	protected void paintBorder(Graphics g) {
+		//paints the border
 		 g.setColor(Color.darkGray);
-		 g.drawOval(x, y, size, size);
+		 g.drawOval(0, 0, getSize().width , getSize().height );
 		 super.paintBorder(g);
 	}
 	
@@ -72,16 +79,14 @@ public class Pit extends JButton{
 	public static void main(String[] args)
 	{
 		JFrame frame = new JFrame();
-		JPanel JPanel = new JPanel();
+		JPanel panel = new JPanel();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new BorderLayout());
 		frame.setSize(200, 200);
 		Pit pit = new Pit(4,Version.ONE,10,10);
-		Pit pit2 = new Pit(4,Version.ONE,20,20);
-		
-		frame.add(pit);
-		frame.add(pit2)
-;		frame.setLocationRelativeTo(null);
+		panel.add(pit);	
+		frame.add(panel);
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 	}
 	
