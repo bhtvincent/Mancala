@@ -44,7 +44,7 @@ public class Pit extends JComponent{
 		this.draw(g2);
 	}
 	
-	/*public static void main(String[] args)
+	public static void main(String[] args)
 	{
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -53,7 +53,7 @@ public class Pit extends JComponent{
 		frame.add(new Pit(Version.ONE,10,10), BorderLayout.CENTER);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
-	}*/
+	}
 	
 	
 
