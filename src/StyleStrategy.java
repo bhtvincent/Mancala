@@ -1,5 +1,5 @@
 import java.awt.*;
 public interface StyleStrategy 
 {
-	public void createBoard(Color mancalaColor, Color pitColor);
+	public JPanel createBoard(Color mancalaColor, Color pitColor);
 }
