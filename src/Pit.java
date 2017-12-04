@@ -81,6 +81,14 @@ public class Pit extends JButton{
 		this.repaint();
 	}
 	
+	//if the user picks up the pit
+	public int pickedPit() {
+		
+		int hand = numOfMarbles;
+		numOfMarbles = 0;
+		return hand;
+	}
+	
 	public static void main(String[] args)
 	{
 		JFrame frame = new JFrame();
