@@ -61,6 +61,7 @@ public class Pit extends JButton{
 		 super.paintBorder(g);
 	}
 	
+<<<<<<< HEAD
 	public boolean contains(int x, int y) {
 	    // If the button has changed size,  make a new shape object.
 	    if (shape == null || !shape.getBounds().equals(getBounds())) {
@@ -69,6 +70,8 @@ public class Pit extends JButton{
 	    return shape.contains(x, y);
 	  }
 	
+=======
+>>>>>>> 15d996aca9be8822e1041e08fcd73af8a1a4b8dd
 	public static void main(String[] args)
 	{
 		JFrame frame = new JFrame();
