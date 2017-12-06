@@ -2,13 +2,17 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class MainFrameOne extends JFrame implements StyleStrategy {
+	private ModelOfMancala mom;
 
 	public MainFrameOne() {
+		mom = new ModelOfMancala();
+		
 		JPanel top = new JPanel();
 		JLabel topArrow = new JLabel("<-------");
 		JLabel topName = new JLabel("Player B");
@@ -71,9 +75,10 @@ public class MainFrameOne extends JFrame implements StyleStrategy {
 		JPanel pits = new JPanel();
 		pits.setLayout(new BorderLayout());
 		
-		JButton pit1 = new JButton("A");
+		JButton pit1 = new JButton("0");
 		pit1.setEnabled(false);
-		JButton pit2 = new JButton("B");
+		JButton pit2 = new JButton("0");
+		pit2.setEnabled(false);
 		
 		pits.add(pit1, BorderLayout.WEST);
 		pit1.setEnabled(false);

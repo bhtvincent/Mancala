@@ -12,6 +12,7 @@ public class ModelOfMancala
 	public ModelOfMancala()
 	{
 		pits = new ArrayList<>();
+		mancalas = new ArrayList<>();
 		listeners = new ArrayList<>();
 	}
 	
@@ -53,5 +54,15 @@ public class ModelOfMancala
 	public ArrayList<MancalaPit> getMancalas()
 	{
 		return mancalas;
+	}
+	
+	public void addPit(Pit p)
+	{
+		pits.add(p);
+	}
+	
+	public void addMancala(MancalaPit mp)
+	{
+		mancalas.add(mp);
 	}
 }
