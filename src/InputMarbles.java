@@ -8,8 +8,11 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 public class InputMarbles extends JFrame{
 
+	private int numOfMarbles;
+	
 	public InputMarbles() {
 		JPanel panel1 = new JPanel();
 		JLabel label1 = new JLabel("Enter the number of marbles to play with:");
@@ -27,6 +30,9 @@ public class InputMarbles extends JFrame{
 				else
 					//load mancala game with num_entered
 					InputMarbles.super.dispose();
+					numOfMarbles = Integer.parseInt(marble_num.getText());
+					System.out.println(numOfMarbles);
+					MainFrameOne frame = new MainFrameOne(numOfMarbles);
 				}
 		});
 		
@@ -43,6 +49,10 @@ public class InputMarbles extends JFrame{
 		setVisible(true);
 		
 		
+	}
+	
+	public int getNumOfMarbles() {
+		return numOfMarbles;
 	}
 	
 	public static void main(String[] args)

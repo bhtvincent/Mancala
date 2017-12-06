@@ -43,7 +43,7 @@ public class Pit extends JButton{
 		
 	
 	//Adds a marble to the LinkedList
-	public void addMarble(Marble m) {
+	public void addMarble() {
 		numOfMarbles++;;
 	}
 	
@@ -79,6 +79,14 @@ public class Pit extends JButton{
 	{
 		this.c = c;
 		this.repaint();
+	}
+	
+	//if the user picks up the pit
+	public int pickedPit() {
+		
+		int hand = numOfMarbles;
+		numOfMarbles = 0;
+		return hand;
 	}
 	
 	public static void main(String[] args)
