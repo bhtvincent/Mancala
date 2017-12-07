@@ -11,7 +11,7 @@ public class StrategyTwo implements StyleStrategy
 		}
 		for(MancalaPit mp : mancalas)
 		{
-			mp.setColor(Color.GREEN);
+			mp.setColor(Color.MAGENTA);
 		}
 	}
 }

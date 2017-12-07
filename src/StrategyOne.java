@@ -6,11 +6,11 @@ public class StrategyOne implements StyleStrategy
 	{
 		for(Pit p : pits)
 		{
-			p.setColor(Color.RED);
+			p.setColor(Color.YELLOW);
 		}
 		for(MancalaPit mp : mancalas)
 		{
-			mp.setColor(Color.ORANGE);
+			mp.setColor(Color.RED);
 		}
 	}
 }
