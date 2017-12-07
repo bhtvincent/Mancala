@@ -27,14 +27,15 @@ public class InputMarbles extends JFrame{
 				int num_entered = Integer.parseInt(marble_num.getText());
 				if (num_entered < 3 || num_entered > 4) 
 					warning.setVisible(true);
-				else
+				
+				else {
 					//load mancala game with num_entered
 					InputMarbles.super.dispose();
 					numOfMarbles = Integer.parseInt(marble_num.getText());
 					System.out.println(numOfMarbles);
 					MainFrameOne frame = new MainFrameOne(mom, numOfMarbles, strat);
 				}
-		});
+		}});
 		
 		panel1.add(label1);
 		panel1.add(marble_num);
@@ -55,8 +56,4 @@ public class InputMarbles extends JFrame{
 		return numOfMarbles;
 	}
 	
-	//public static void main(String[] args)
-	//{
-	//	InputMarbles im = new InputMarbles(new ModelOfMancala());
-	//}
 }
