@@ -1,15 +1,17 @@
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
-import java.awt.geom.Rectangle2D;
-import java.util.LinkedList;
 
 import javax.swing.*;
 
+/**
+ * This class extends JButton showing them as Ellipses instead of squares
+ * Pits can be clicked, can set their color, and save the amount of marbles they hold
+ * @author Team Java
+ *
+ */
 public class Pit extends JButton{
 	
 	private Color c;
@@ -19,38 +21,39 @@ public class Pit extends JButton{
 	private int numOfMarbles;
 	private Shape shape;
 	
-	
+	/**
+	 * Creates a Pit Button and sets numOfMarbles to amount of marbles it holds
+	 * @param numOfMarbles - can only be initialized to 3 or 4, but taken care of in InputMarbles class
+	 */
 	public Pit(int numOfMarbles) {
 		
 		super(Integer.toString(numOfMarbles));
 		this.numOfMarbles = numOfMarbles;
-		//this.x=x;
-		//this.y=y;
 		this.setPreferredSize(new Dimension(size,size));
 		
-		c = Color.RED;//Set the Color
 		this.setBackground(c);
 		this.setOpaque(true);
 		this.setBorderPainted(false);
-
 
 		setBackground(Color.lightGray);
 	    setFocusable(false);
 	    setContentAreaFilled(false);
 	    
-	    
 	}
 		
 	
-	//Adds a marble to the LinkedList
+	/**
+	 * Adds one marble to numOfMarbles
+	 */
 	public void addMarble() {
 		this.setText(Integer.toString(++numOfMarbles));
 	}
 	
-	
+	/**
+	 * Paints the inside of the Pit its Color c, and grey when clicked
+	 */
 	protected void paintComponent(Graphics g)
 	{
-		//Paints the inside of the Pit, and grey if its clicked
 		if (getModel().isArmed()) {
 		      g.setColor(Color.gray);
 		} else {
@@ -101,20 +104,4 @@ public class Pit extends JButton{
 		numOfMarbles = i;
 	}
 	
-	public static void main(String[] args)
-	{
-		JFrame frame = new JFrame();
-		JPanel panel = new JPanel();
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLayout(new BorderLayout());
-		frame.setSize(200, 200);
-		Pit pit = new Pit(4);
-		panel.add(pit);	
-		frame.add(panel);
-		frame.setLocationRelativeTo(null);
-		frame.setVisible(true);
-	}
-	
-	
-
 }
