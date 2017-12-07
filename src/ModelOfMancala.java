@@ -113,21 +113,27 @@ public class ModelOfMancala
 			}
 			else
 			{
-				int z = i;
-				if(++z > 11)
+				//int z = i;
+				//if(++z > 11)
+				//{
+				//	i = -1;
+				//}
+				//if(i >= 6 && index < 6)
+				//{
+				//	pits.get(i++).addMarble();
+				//	stones--;
+				//}
+				//else
+				//{
+				//	pits.get(++i).addMarble();
+				//	stones--;
+				//}
+				if(++i > 11)
 				{
-					i = -1;
+					i = 0;
 				}
-				if(i >= 6 && index < 6)
-				{
-					pits.get(i++).addMarble();
-					stones--;
-				}
-				else
-				{
-					pits.get(++i).addMarble();
-					stones--;
-				}
+				pits.get(i).addMarble();
+				stones--;
 				if(stones == 0 && pits.get(i).getMarbles() == 1)
 				{
 					if(index <= 5)
