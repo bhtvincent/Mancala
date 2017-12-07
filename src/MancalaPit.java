@@ -6,11 +6,18 @@ import javax.swing.JPanel;
 
 public class MancalaPit extends Pit
 {
-	public MancalaPit(int x, int y)
+	public MancalaPit()
 	{
-		super(0,x,y);
+		super(0);
 		this.setEnabled(false);
 		this.setPreferredSize((new Dimension(100,250)));
+	}
+	
+	public MancalaPit(int i)
+	{
+		super(i);
+		this.setEnabled(false);
+		this.setPreferredSize(new Dimension(100, 250));
 	}
 	
 
@@ -21,7 +28,7 @@ public class MancalaPit extends Pit
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new BorderLayout());
 		frame.setSize(200, 200);
-		MancalaPit pit = new MancalaPit(10,10);
+		MancalaPit pit = new MancalaPit();
 		panel.add(pit);	
 		frame.add(panel);
 		frame.setLocationRelativeTo(null);

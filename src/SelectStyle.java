@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 
 public class SelectStyle extends JFrame{
 
-	public SelectStyle() {
+	public SelectStyle(ModelOfMancala mom) {
 		JPanel panel = new JPanel();
 		setLayout(null);
 		setSize(500,300);
@@ -23,7 +23,7 @@ public class SelectStyle extends JFrame{
 			
 			public void actionPerformed(ActionEvent event) {
 				//MainFrameOne frame = new MainFrameOne();
-				InputMarbles input = new InputMarbles();
+				InputMarbles input = new InputMarbles(mom, new StrategyOne());
 				SelectStyle.super.dispose();
 			}
 			
@@ -35,7 +35,7 @@ public class SelectStyle extends JFrame{
 			
 			public void actionPerformed(ActionEvent event) {
 				//MainFrameOne frame = new MainFrameOne();
-				InputMarbles input = new InputMarbles();
+				InputMarbles input = new InputMarbles(mom, new StrategyTwo());
 				SelectStyle.super.dispose();
 			}
 			

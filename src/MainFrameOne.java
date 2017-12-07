@@ -2,22 +2,34 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.*;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.event.*;
 
-public class MainFrameOne extends JFrame implements StyleStrategy {
+import java.util.*;
+
+public class MainFrameOne extends JFrame implements ChangeListener{
 	private ModelOfMancala mom;
+	private JPanel pits;
+	private JPanel main;
+	private JPanel pane;
+	private JButton undo;
+	private StyleStrategy strat;
 
-<<<<<<< HEAD
-	public MainFrameOne() {
-		mom = new ModelOfMancala();
+//<<<<<<< HEAD
+	//public MainFrameOne() {
+	//	mom = new ModelOfMancala();
+	//}
 		
-=======
-	public MainFrameOne(int numOfMarbles) {
->>>>>>> cc83e5413da1d2588e9b2718bf043a8f5303a144
+//=======
+	public MainFrameOne(ModelOfMancala mom, int numOfMarbles, StyleStrategy strat) {
+//>>>>>>> cc83e5413da1d2588e9b2718bf043a8f5303a144
+		this.strat = strat;
+		this.mom = mom;
 		JPanel top = new JPanel();
 		JLabel topArrow = new JLabel("<-------");
 		JLabel topName = new JLabel("Player B");
@@ -32,7 +44,7 @@ public class MainFrameOne extends JFrame implements StyleStrategy {
 
 		JPanel left = new JPanel();
 		JLabel leftPit = new JLabel();
-		leftPit.setText("<html>M<br>A<br>N<br>C<br>A<br>L<br>A<br> <br>A</html>");
+		leftPit.setText("<html>M<br>A<br>N<br>C<br>A<br>L<br>A<br> <br>B</html>");
 		leftPit.setPreferredSize(new Dimension(50, 50));
 		leftPit.setHorizontalAlignment(JLabel.CENTER);
 		left.setLayout(new BorderLayout());
@@ -40,13 +52,13 @@ public class MainFrameOne extends JFrame implements StyleStrategy {
 
 		JPanel right = new JPanel();
 		JLabel rightPit = new JLabel();
-		rightPit.setText("<html>M<br>A<br>N<br>C<br>A<br>L<br>A<br> <br>B</html>");
+		rightPit.setText("<html>M<br>A<br>N<br>C<br>A<br>L<br>A<br> <br>A</html>");
 		rightPit.setPreferredSize(new Dimension(50, 50));
 		rightPit.setHorizontalAlignment(JLabel.CENTER);
 		right.setLayout(new BorderLayout());
 		right.add(rightPit, BorderLayout.CENTER);
 
-		JPanel main = new JPanel();
+		main = new JPanel();
 		main.setLayout(new BorderLayout());
 
 		setSize(1000, 700);
@@ -59,44 +71,99 @@ public class MainFrameOne extends JFrame implements StyleStrategy {
 		main.add(right, BorderLayout.EAST);
 
 		add(main, BorderLayout.CENTER);
-		createBoard(Color.RED, Color.CYAN, "circle");
+		//createBoard(Color.RED, Color.CYAN, "circle");
 		setVisible(true);
 		
 		//Gridlayout containing 12 buttons inside of Borderlayout
 		int rows = 2;
 		int columns = 6;
 		
-		JPanel pane = new JPanel();
-	    pane.setLayout(new GridLayout(rows, columns));
-	    for (int i = 7; i > 1; i--) {
-	     JButton button = new JButton(Integer.toString(numOfMarbles));
-	      pane.add(button);
+		pane = new JPanel();
+		GridLayout layout = new GridLayout(rows, columns);
+		layout.setVgap(15);
+		layout.setHgap(25);
+	    pane.setLayout(layout);
+	    ArrayList<Pit> pt = new ArrayList<>();
+	    ArrayList<MancalaPit> mpt = new ArrayList<>();
+	    for(int i = 0; i < 12; i++)
+	    {
+	    	pt.add(new Pit(numOfMarbles));
 	    }
-	    for (int i = 0; i < 6; i++) {
-		      JButton button = new JButton(Integer.toString(numOfMarbles));
-		      pane.add(button);
-		    }
-	   
-		JPanel pits = new JPanel();
+	    
+	    MancalaPit mpb = new MancalaPit();
+		mpb.setEnabled(false);
+		mpt.add(mpb);
+		MancalaPit mpa = new MancalaPit();
+		mpa.setEnabled(false);
+		mpt.add(mpa);
+		
+		strat.createBoard(pt, mpt);
+		for(Pit p : pt)
+		{
+			this.mom.addPit(p);
+		}
+		for(MancalaPit mp : mpt)
+		{
+			this.mom.addMancala(mp);
+		}
+		
+	   for(int i = 5; i > -1; i--)
+	   {
+		   pane.add(this.mom.getPits().get(i));;
+	   }
+	   for(int i = 6; i < 12; i++)
+	   {
+		   pane.add(this.mom.getPits().get(i));
+	   }
+	  undo = new JButton("Undo");
+	  undo.setEnabled(false);
+	  addActionListeners();
+	  createUndoListener();
+	  
+		pits = new JPanel();
 		pits.setLayout(new BorderLayout());
 		
-		JButton pit1 = new JButton("0");
-		pit1.setEnabled(false);
-		JButton pit2 = new JButton("0");
-		pit2.setEnabled(false);
-		
-		pits.add(pit1, BorderLayout.WEST);
-		pit2.setEnabled(false);
-		pits.add(pit2, BorderLayout.EAST);
+		pits.add(mpb, BorderLayout.WEST);
+		//pit2.setEnabled(false);
+		pits.add(mpa, BorderLayout.EAST);
+		pits.add(undo, BorderLayout.NORTH);
 		
 		pits.add(pane, BorderLayout.CENTER);
 	    main.add(pits, BorderLayout.CENTER);
 
 	}
 	
-	public void createBoard(Color mancalaColor, Color pitColor, String pitShape)
+	public void stateChanged(ChangeEvent e)
 	{
-		
+		pane.repaint();
+		pits.repaint();
+		main.repaint();
+		this.repaint();
+	}
+	
+	private void addActionListeners()
+	{
+		 for(Pit p : mom.getPits())
+		   {
+			   p.addActionListener(new ActionListener(){
+				   public void actionPerformed(ActionEvent e)
+				   {
+					   mom.moveMade(mom.getPits().indexOf(p));
+					   undo.setEnabled(true);
+				   }
+			   });
+		   }
+	}
+	
+	private void createUndoListener()
+	{
+		undo.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e)
+			{
+				mom.undo();
+				undo.setEnabled(false);
+			}
+		});
 	}
 
 }

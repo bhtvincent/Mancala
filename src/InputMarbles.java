@@ -13,7 +13,7 @@ public class InputMarbles extends JFrame{
 
 	private int numOfMarbles;
 	
-	public InputMarbles() {
+	public InputMarbles(ModelOfMancala mom, StyleStrategy strat) {
 		JPanel panel1 = new JPanel();
 		JLabel label1 = new JLabel("Enter the number of marbles to play with:");
 		JTextField marble_num = new JTextField(1);
@@ -32,7 +32,7 @@ public class InputMarbles extends JFrame{
 					InputMarbles.super.dispose();
 					numOfMarbles = Integer.parseInt(marble_num.getText());
 					System.out.println(numOfMarbles);
-					MainFrameOne frame = new MainFrameOne(numOfMarbles);
+					MainFrameOne frame = new MainFrameOne(mom, numOfMarbles, strat);
 				}
 		});
 		
@@ -55,8 +55,8 @@ public class InputMarbles extends JFrame{
 		return numOfMarbles;
 	}
 	
-	public static void main(String[] args)
-	{
-		InputMarbles im = new InputMarbles();
-	}
+	//public static void main(String[] args)
+	//{
+	//	InputMarbles im = new InputMarbles(new ModelOfMancala());
+	//}
 }
