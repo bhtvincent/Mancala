@@ -68,7 +68,7 @@ public class ModelOfMancala
 			if(i == 5 && index > -1 && index <= 5 )
 			{
 				mancalas.get(0).addMarble();
-				i++;
+				i=6;
 				stones--;
 				if(stones == 0)
 				{
@@ -91,7 +91,7 @@ public class ModelOfMancala
 			else if(i == 11 && index > 5 && index <= 11)
 			{
 				mancalas.get(1).addMarble();
-				i++;
+				i=-1;
 				stones--;
 				if(stones == 0)
 				{
@@ -128,12 +128,25 @@ public class ModelOfMancala
 				//	pits.get(++i).addMarble();
 				//	stones--;
 				//}
-				if(++i > 11)
+				//if(++i > 11)
+				//{
+				//	i = -1;
+				//}
+				//else
+				//{
+				//	i--;
+				//}
+				if(i >= 6 && index < 6 || i == 11)
 				{
-					i = 0;
+					pits.get(i).addMarble();
+					stones--;
+					i++;
 				}
-				pits.get(i).addMarble();
-				stones--;
+				else
+				{
+					pits.get(++i).addMarble();
+					stones--;
+				}
 				if(stones == 0 && pits.get(i).getMarbles() == 1)
 				{
 					if(index <= 5)
@@ -147,7 +160,7 @@ public class ModelOfMancala
 								mancalas.get(0).addMarble();
 							}
 						}
-						else if(i == 1)
+						if(i == 1)
 						{
 							int j = 10;
 							int caputred = pits.get(i).pickedPit() + pits.get(j).pickedPit();
@@ -156,7 +169,7 @@ public class ModelOfMancala
 								mancalas.get(0).addMarble();
 							}
 						}
-						else if(i == 2)
+						if(i == 2)
 						{
 							int j = 9;
 							int caputred = pits.get(i).pickedPit() + pits.get(j).pickedPit();
@@ -165,7 +178,7 @@ public class ModelOfMancala
 								mancalas.get(0).addMarble();
 							}
 						}
-						else if(i == 3)
+						if(i == 3)
 						{
 							int j = 8;
 							int caputred = pits.get(i).pickedPit() + pits.get(j).pickedPit();
@@ -174,7 +187,7 @@ public class ModelOfMancala
 								mancalas.get(0).addMarble();
 							}
 						}
-						else if(i == 4)
+						if(i == 4)
 						{
 							int j = 7;
 							int caputred = pits.get(i).pickedPit() + pits.get(j).pickedPit();
@@ -183,7 +196,7 @@ public class ModelOfMancala
 								mancalas.get(0).addMarble();
 							}
 						}
-						else
+						if(i == 5)
 						{
 							int j = 6;
 							int caputred = pits.get(i).pickedPit() + pits.get(j).pickedPit();
@@ -197,7 +210,7 @@ public class ModelOfMancala
 					{
 						if(index > 5)
 						{
-						if( i == 11)
+						if(i == 11)
 						{
 							int j = 0;
 							int caputred = pits.get(i).pickedPit() + pits.get(j).pickedPit();
@@ -206,7 +219,7 @@ public class ModelOfMancala
 								mancalas.get(1).addMarble();
 							}
 						}
-						else if(i == 10)
+						if(i == 10)
 						{
 							int j = 1;
 							int caputred = pits.get(i).pickedPit() + pits.get(j).pickedPit();
@@ -215,7 +228,7 @@ public class ModelOfMancala
 								mancalas.get(1).addMarble();
 							}
 						}
-						else if(i == 9)
+						if(i == 9)
 						{
 							int j = 2;
 							int caputred = pits.get(i).pickedPit() + pits.get(j).pickedPit();
@@ -224,7 +237,7 @@ public class ModelOfMancala
 								mancalas.get(1).addMarble();
 							}
 						}
-						else if(i == 8)
+						if(i == 8)
 						{
 							int j = 3;
 							int caputred = pits.get(i).pickedPit() + pits.get(j).pickedPit();
@@ -233,7 +246,7 @@ public class ModelOfMancala
 								mancalas.get(1).addMarble();
 							}
 						}
-						else if(i == 7)
+						if(i == 7)
 						{
 							int j = 4;
 							int caputred = pits.get(i).pickedPit() + pits.get(j).pickedPit();
@@ -242,7 +255,7 @@ public class ModelOfMancala
 								mancalas.get(1).addMarble();
 							}
 						}
-						else if(i == 6)
+						if(i == 6)
 						{
 							int j = 5;
 							int caputred = pits.get(i).pickedPit() + pits.get(j).pickedPit();
@@ -253,6 +266,10 @@ public class ModelOfMancala
 						}
 						}
 					}
+				}
+				if(i > 11)
+				{
+					i = -1;
 				}
 			}
 		}
