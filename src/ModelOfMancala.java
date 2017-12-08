@@ -147,6 +147,10 @@ public class ModelOfMancala
 					pits.get(++i).addMarble();
 					stones--;
 				}
+				if(i == 12)
+				{
+					i--;
+				}
 				if(stones == 0 && pits.get(i).getMarbles() == 1)
 				{
 					if(index <= 5)
@@ -218,6 +222,7 @@ public class ModelOfMancala
 							{
 								mancalas.get(1).addMarble();
 							}
+							i++;
 						}
 						if(i == 10)
 						{
