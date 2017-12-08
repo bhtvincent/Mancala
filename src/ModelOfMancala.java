@@ -147,9 +147,11 @@ public class ModelOfMancala
 					pits.get(++i).addMarble();
 					stones--;
 				}
+				int z = 0;
 				if(i == 12)
 				{
 					i--;
+					z = 12;
 				}
 				if(stones == 0 && pits.get(i).getMarbles() == 1)
 				{
@@ -222,7 +224,7 @@ public class ModelOfMancala
 							{
 								mancalas.get(1).addMarble();
 							}
-							i++;
+							//i++;
 						}
 						if(i == 10)
 						{
@@ -272,7 +274,11 @@ public class ModelOfMancala
 						}
 					}
 				}
-				if(i > 11)
+				if(z != 0)
+				{
+					i = z;
+				}
+				if(i > 11 && index < 6)
 				{
 					i = -1;
 				}
