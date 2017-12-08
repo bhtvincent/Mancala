@@ -11,6 +11,13 @@ import java.util.ArrayList;
 
 public class StrategyOne implements StyleStrategy
 {	
+
+	/**
+	 * Creates the board based on the selected style and changes the color of the pits and mancalas
+	 * @param pits the pits of the board
+	 * @param mancalas the two mancalas of the board
+	 */
+	 
 	public void createBoard(ArrayList<Pit> pits, ArrayList<MancalaPit> mancalas)
 	{
 		for(Pit p : pits)
