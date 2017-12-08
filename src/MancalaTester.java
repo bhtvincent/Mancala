@@ -5,7 +5,7 @@ import java.awt.Color;
  * @author Grant Clegg
  * @author Daniel Fonyo
  * @author Vincent Tran
- * @version May 6, 2014
+ * @version December 7, 2017
  */
 
 public class MancalaTester {
