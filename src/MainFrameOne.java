@@ -77,7 +77,7 @@ public class MainFrameOne extends JFrame implements ChangeListener{
 		setVisible(true);
 		
 		//Gridlayout containing 12 buttons inside of Borderlayout
-		int rows = 2;
+		int rows = 4;
 		int columns = 6;
 		
 		pane = new JPanel();
@@ -113,6 +113,22 @@ public class MainFrameOne extends JFrame implements ChangeListener{
 	   {
 		   pane.add(this.mom.getPits().get(i));;
 	   }
+	   for(int i = 1; i < 13; i++)
+	   {
+		   String s ="";
+		   if(i < 7)
+		   {
+			   s = "             B" + (7-i);
+		   }
+		   else
+		   {
+			   s = "             A" + (i-6);
+		   }
+		   JLabel b = new JLabel(s);
+		   //b.setEnabled(false);
+		   //b.setPreferredSize(new Dimension(10, 10));
+		   pane.add(b);
+	   }
 	   for(int i = 6; i < 12; i++)
 	   {
 		   pane.add(this.mom.getPits().get(i));
@@ -136,7 +152,7 @@ public class MainFrameOne extends JFrame implements ChangeListener{
 	}
 	
 	/**
-	 * Updates the view of the model has been updated
+	 * Updates the view if the model has been updated
 	 */
 	public void stateChanged(ChangeEvent e)
 	{
