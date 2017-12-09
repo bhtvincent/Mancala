@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -12,6 +13,13 @@ import javax.swing.event.*;
 
 import java.util.*;
 
+/**
+ * Viewer/Controller of the game. Creates the main game board and notifies the model of user actions
+ * @author Grant Clegg
+ * @author Daniel Fonyo
+ * @author Vincent Tran
+ *
+ */
 public class MainFrameOne extends JFrame implements ChangeListener{
 	private ModelOfMancala mom;
 	private JPanel pits;
@@ -20,14 +28,8 @@ public class MainFrameOne extends JFrame implements ChangeListener{
 	private JButton undo;
 	private StyleStrategy strat;
 
-//<<<<<<< HEAD
-	//public MainFrameOne() {
-	//	mom = new ModelOfMancala();
-	//}
-		
-//=======
+
 	public MainFrameOne(ModelOfMancala mom, int numOfMarbles, StyleStrategy strat) {
-//>>>>>>> cc83e5413da1d2588e9b2718bf043a8f5303a144
 		this.strat = strat;
 		this.mom = mom;
 		JPanel top = new JPanel();
@@ -97,7 +99,7 @@ public class MainFrameOne extends JFrame implements ChangeListener{
 		mpa.setEnabled(false);
 		mpt.add(mpa);
 		
-		strat.createBoard(pt, mpt);
+		this.strat.createBoard(pt, mpt);
 		for(Pit p : pt)
 		{
 			this.mom.addPit(p);
@@ -133,6 +135,9 @@ public class MainFrameOne extends JFrame implements ChangeListener{
 
 	}
 	
+	/**
+	 * Updates the view of the model has been updated
+	 */
 	public void stateChanged(ChangeEvent e)
 	{
 		pane.repaint();
@@ -141,6 +146,9 @@ public class MainFrameOne extends JFrame implements ChangeListener{
 		this.repaint();
 	}
 	
+	/**
+	 * Creates the ActionListeners for the Pits, so the Pits may notify the model when a play has been made.
+	 */
 	private void addActionListeners()
 	{
 		 for(Pit p : mom.getPits())
@@ -155,6 +163,9 @@ public class MainFrameOne extends JFrame implements ChangeListener{
 		   }
 	}
 	
+	/**
+	 * Creates the ActionListener for the undo button, so the model may be notified when the user wishes to undo a turn.
+	 */
 	private void createUndoListener()
 	{
 		undo.addActionListener(new ActionListener(){

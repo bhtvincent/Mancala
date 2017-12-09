@@ -8,7 +8,13 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
+/**
+ * Viewer/Controller for how many marbles the user wishes to play with. 
+ * @author Grant Clegg
+ * @author Daniel Fonyo
+ * @author Vicent Tran
+ *
+ */
 public class InputMarbles extends JFrame{
 
 	private int numOfMarbles;
@@ -18,7 +24,7 @@ public class InputMarbles extends JFrame{
 		JLabel label1 = new JLabel("Enter the number of marbles to play with:");
 		JTextField marble_num = new JTextField(1);
 		JButton button1 = new JButton("Begin!");
-		JLabel warning = new JLabel("Wrong number of marbles entered!");
+		JLabel warning = new JLabel("Wrong number of marbles entered! Enter 3 or 4");
 		warning.setVisible(false);
 		
 		button1.addActionListener(new ActionListener() {
@@ -52,6 +58,10 @@ public class InputMarbles extends JFrame{
 		
 	}
 	
+	/**
+	 * Gets the number of marbles the user wishes to play with
+	 * @return the number of marbles the user wishes to play with
+	 */
 	public int getNumOfMarbles() {
 		return numOfMarbles;
 	}

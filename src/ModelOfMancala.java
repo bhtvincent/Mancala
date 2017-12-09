@@ -3,6 +3,14 @@ import javax.swing.event.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+
+/**
+ * Models a Mancala Game
+ * @author Grant Clegg
+ * @author Daniel Fonyo
+ * @author Vincent Tran
+ *
+ */
 public class ModelOfMancala 
 {
 	private ArrayList<Pit> pits;
@@ -45,8 +53,8 @@ public class ModelOfMancala
 	}
 	
 	/**
-	 * Moves the Marbles from one pit into the next
-	 * pits. Not yet Functional
+	 * Models on turn in the Mancala game
+	 * @param index the index of the pit on the board where the turn was initiated
 	 */
 	public void moveMade(int index)
 	{
@@ -382,6 +390,9 @@ public class ModelOfMancala
 		}
 	}
 	
+	/**
+	 * Reverts the most recent turn in the Mancala game
+	 */
 	public void undo()
 	{
 		for(int i = 0; i < 12; i++)
@@ -395,21 +406,37 @@ public class ModelOfMancala
 		update();
 	}
 	
+	/**
+	 * Retrieves the list of Pits in this game
+	 * @return the list of Pits in this game
+	 */
 	public ArrayList<Pit> getPits()
 	{
 		return pits;
 	}
 	
+	/**
+	 * Returns the MancalaPits of this game
+	 * @return the MancalaPits of this game
+	 */
 	public ArrayList<MancalaPit> getMancalas()
 	{
 		return mancalas;
 	}
 	
+	/**
+	 * Adds a pit to this game
+	 * @param p The pit to add to this game
+	 */
 	public void addPit(Pit p)
 	{
 		pits.add(p);
 	}
 	
+	/**
+	 * Adds a MancalaPit to this game. 
+	 * @param mp The MancalaPit to be added to this game
+	 */
 	public void addMancala(MancalaPit mp)
 	{
 		mancalas.add(mp);

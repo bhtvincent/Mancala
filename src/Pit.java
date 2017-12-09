@@ -63,6 +63,9 @@ public class Pit extends JButton{
 		super.paintComponent(g);
 	}
 	
+	/**
+	 * Creates the dark border for the pits.
+	 */
 	protected void paintBorder(Graphics g) {
 		//paints the border
 		 g.setColor(Color.darkGray);
@@ -78,13 +81,20 @@ public class Pit extends JButton{
 	    return shape.contains(x, y);
 	  }
 	
+	/**
+	 * Changes the color of the pit
+	 * @param c the new color of the pit
+	 */
 	public void setColor(Color c)
 	{
 		this.c = c;
 		this.repaint();
 	}
 	
-	//if the user picks up the pit
+	/**
+	 * Changes pit's value if it is selected. Resets the pit's value to zero
+	 * @return the number of marbles held in this pit
+	 */
 	public int pickedPit() {
 		
 		int hand = numOfMarbles;
@@ -93,11 +103,19 @@ public class Pit extends JButton{
 		return hand;
 	}
 	
+	/**
+	 * Gets the number of marbles in the pit without mutating the pit's value
+	 * @return the number of marbles in the pit
+	 */
 	public int getMarbles()
 	{
 		return numOfMarbles;
 	}
 	
+	/**
+	 * Sets the number of marbles in the pit to the specified value
+	 * @param i the number of marbles to be in the pit
+	 */
 	public void setNumOfMarbles(int i)
 	{
 		this.setText(Integer.toString(i));

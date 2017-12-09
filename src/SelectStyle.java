@@ -7,7 +7,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+/**
+ * Viewer/controller for the viewer interface that allows the user to select the style they wish to use.
+ * @author Grant Clegg
+ * @author Daniel Fonyo
+ * @author Vincent Tran
+ *
+ */
 public class SelectStyle extends JFrame{
 
 	public SelectStyle(ModelOfMancala mom) {
