@@ -1,6 +1,8 @@
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
 
@@ -60,6 +62,29 @@ public class Pit extends JButton{
 			   g.setColor(c);
 		}
 		 g.fillOval(0, 0, getSize().width, getSize().height);
+		 
+		 if(numOfMarbles>0) {
+			 int startX = x+ 25;
+			 int marbleY = y + 25;
+			 boolean done  = false;
+			 int counter = 0;
+			 
+			 while(!done) {
+				 int marbleX = startX;
+				 for(int i = 0;i<3;i++) {
+					 if(counter == numOfMarbles) {
+						 done = true;
+					 }
+					 else {
+						 Marble m = new Marble(Color.GREEN,marbleX,marbleY);
+						 m.draw((Graphics2D)g);
+						 marbleX = marbleX + 10;
+						 counter++;
+					 }
+				 }
+				 marbleY = marbleY + 10; 
+			 }
+		 }
 		super.paintComponent(g);
 	}
 	
@@ -120,6 +145,23 @@ public class Pit extends JButton{
 	{
 		this.setText(Integer.toString(i));
 		numOfMarbles = i;
+	}
+	public static void main(String[] args)
+	{
+		JFrame frame = new JFrame();
+		JPanel JPanel = new JPanel();
+		JPanel panel = new JPanel();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLayout(new BorderLayout());
+		frame.setSize(200, 200);
+		Pit pit = new Pit(11);
+		
+		frame.add(pit);
+;		frame.setLocationRelativeTo(null);
+		panel.add(pit);	
+		frame.add(panel);
+		frame.setLocationRelativeTo(null);
+		frame.setVisible(true);
 	}
 	
 }
