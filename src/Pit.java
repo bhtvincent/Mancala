@@ -65,7 +65,7 @@ public class Pit extends JButton{
 		 
 		 if(numOfMarbles>0) {
 			 int startX = x+ 25;
-			 int marbleY = y + 25;
+			 int marbleY = y + 40;
 			 boolean done  = false;
 			 int counter = 0;
 			 
