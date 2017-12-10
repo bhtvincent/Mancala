@@ -65,7 +65,7 @@ public class Pit extends JButton{
 		 
 		 if(numOfMarbles>0) {
 			 int startX = x+ 25;
-			 int marbleY = y + 25;
+			 int marbleY = y + 40;
 			 boolean done  = false;
 			 int counter = 0;
 			 
@@ -76,7 +76,7 @@ public class Pit extends JButton{
 						 done = true;
 					 }
 					 else {
-						 Marble m = new Marble(Color.GREEN,marbleX,marbleY); //THIS IS WHERE THE MARBLE COLOR IS CHOSEN
+						 Marble m = new Marble(Color.BLACK,marbleX,marbleY); //THIS IS WHERE THE MARBLE COLOR IS CHOSEN
 						 m.draw((Graphics2D)g);
 						 marbleX = marbleX + 10;
 						 counter++;
