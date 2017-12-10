@@ -38,7 +38,6 @@ public class MancalaPit extends Pit
 	
 	protected void paintComponent(Graphics g)
 	{
-		System.out.println("Mancala Pit");
 		if (getModel().isArmed()) {
 		      g.setColor(Color.gray);
 		} else {
