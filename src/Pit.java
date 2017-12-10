@@ -76,7 +76,7 @@ public class Pit extends JButton{
 						 done = true;
 					 }
 					 else {
-						 Marble m = new Marble(Color.GREEN,marbleX,marbleY); //THIS IS WHERE THE MARBLE COLOR IS CHOSEN
+						 Marble m = new Marble(Color.BLACK,marbleX,marbleY); //THIS IS WHERE THE MARBLE COLOR IS CHOSEN
 						 m.draw((Graphics2D)g);
 						 marbleX = marbleX + 10;
 						 counter++;
