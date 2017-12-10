@@ -16,9 +16,9 @@ import javax.swing.*;
  */
 public class Pit extends JButton{
 	
-	private Color c;
-	private int x;
-	private int y;
+	protected Color c;
+	protected int x;
+	protected int y;
 	private final int size = 60;
 	private int numOfMarbles;
 	private Shape shape;
@@ -76,7 +76,7 @@ public class Pit extends JButton{
 						 done = true;
 					 }
 					 else {
-						 Marble m = new Marble(Color.GREEN,marbleX,marbleY);
+						 Marble m = new Marble(Color.GREEN,marbleX,marbleY); //THIS IS WHERE THE MARBLE COLOR IS CHOSEN
 						 m.draw((Graphics2D)g);
 						 marbleX = marbleX + 10;
 						 counter++;
@@ -146,22 +146,5 @@ public class Pit extends JButton{
 		this.setText(Integer.toString(i));
 		numOfMarbles = i;
 	}
-	public static void main(String[] args)
-	{
-		JFrame frame = new JFrame();
-		JPanel JPanel = new JPanel();
-		JPanel panel = new JPanel();
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLayout(new BorderLayout());
-		frame.setSize(200, 200);
-		Pit pit = new Pit(11);
-		
-		frame.add(pit);
-;		frame.setLocationRelativeTo(null);
-		panel.add(pit);	
-		frame.add(panel);
-		frame.setLocationRelativeTo(null);
-		frame.setVisible(true);
-	}
-	
+
 }

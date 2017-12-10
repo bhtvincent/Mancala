@@ -28,7 +28,6 @@ public class SelectStyle extends JFrame{
 		button1.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent event) {
-				//MainFrameOne frame = new MainFrameOne();
 				InputMarbles input = new InputMarbles(mom, new StrategyOne());
 				SelectStyle.super.dispose();
 			}

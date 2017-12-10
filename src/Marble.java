@@ -46,16 +46,4 @@ public class Marble extends JComponent
 		this.draw(g2);
 	}
 	
-	//Main method for testing purposes
-	public static void main(String[] args)
-	{
-		JFrame frame = new JFrame();
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLayout(new BorderLayout());
-		frame.setSize(200, 200);
-		frame.add(new Marble(Color.RED, 2, 2), BorderLayout.CENTER);
-		frame.setLocationRelativeTo(null);
-		frame.setVisible(true);
-	}
-	
 }

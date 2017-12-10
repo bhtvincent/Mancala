@@ -1,5 +1,8 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -33,17 +36,38 @@ public class MancalaPit extends Pit
 		this.setPreferredSize(new Dimension(100, 250));
 	}
 	
-	/*public static void main(String[] args)
+	protected void paintComponent(Graphics g)
 	{
-		JFrame frame = new JFrame();
-		JPanel panel = new JPanel();
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLayout(new BorderLayout());
-		frame.setSize(200, 200);
-		MancalaPit pit = new MancalaPit();
-		panel.add(pit);	
-		frame.add(panel);
-		frame.setLocationRelativeTo(null);
-		frame.setVisible(true);
-	}*/
+		System.out.println("Mancala Pit");
+		if (getModel().isArmed()) {
+		      g.setColor(Color.gray);
+		} else {
+			   g.setColor(c);
+		}
+		 g.fillOval(0, 0, getSize().width, getSize().height);
+		 
+		 if(getMarbles()>0) {
+			 int startX = x+ 40;
+			 int marbleY = y + 40;
+			 boolean done  = false;
+			 int counter = 0;
+			 
+			 while(!done) {
+				 int marbleX = startX;
+				 for(int i = 0;i<2;i++) {
+					 if(counter == getMarbles()) {
+						 done = true;
+					 }
+					 else {
+						 Marble m = new Marble(Color.GREEN,marbleX,marbleY);
+						 m.draw((Graphics2D)g);
+						 marbleX = marbleX + 30;
+						 counter++;
+					 }
+				 }
+				 marbleY = marbleY + 30; 
+			 }
+		 }
+		super.paintComponent(g);
+	}
 }
